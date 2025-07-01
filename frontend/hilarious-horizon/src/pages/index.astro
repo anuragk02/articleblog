@@ -1,5 +1,4 @@
 ---
----
 const API_URL = import.meta.env.PUBLIC_API_URL;
 
 let data = { message: 'Loading...' };
@@ -15,13 +14,5 @@ try {
 }
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <title>My Live Site</title>
-  </head>
-  <body>
-    <h1>My Live Site is Up!</h1>
-    <p>Data from API: {data.message}</p>
-  </body>
-</html>
+<h1>My Live Site is Up!</h1>
+<p>Data from API: {data.message}</p>
