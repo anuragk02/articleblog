@@ -13,6 +13,10 @@ try {
   data = { message: 'Error connecting to the API.' };
 }
 ---
+---
+const API_URL = import.meta.env.PUBLIC_API_URL;
+//... rest of the fetch logic
+---
 <html lang="en">
   <head>
     <meta charset="utf-8" />
