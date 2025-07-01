@@ -1,18 +1,29 @@
 ---
-const API_URL = import.meta.env.PUBLIC_API_URL;
+// This is the base URL from your Vercel environment variable
+const API_BASE_URL = import.meta.env.PUBLIC_API_URL;
 
 let data = { message: 'Loading...' };
 try {
-  const response = await fetch(API_URL);
+  // The specific endpoint path is added here
+  const response = await fetch(`${API_BASE_URL}/api/data`);
+  
   if (response.ok) {
     data = await response.json();
   } else {
-    data = { message: 'Failed to fetch data.' };
+    data = { message: `Failed to fetch data. Status: ${response.status}` };
   }
 } catch (error) {
+  console.error('Fetch error:', error);
   data = { message: 'Error connecting to the API.' };
 }
 ---
-
-<h1>My Live Site is Up!</h1>
-<p>Data from API: {data.message}</p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Live Site</title>
+  </head>
+  <body>
+    <h1>My Live Site is Up!</h1>
+    <p>Data from API: {data.message}</p>
+  </body>
+</html>
