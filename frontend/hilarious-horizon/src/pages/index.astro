@@ -1,0 +1,25 @@
+---
+// This will be replaced by an environment variable
+const API_URL = 'http://localhost:3001/api/data';
+let data = { message: 'Loading...' };
+try {
+  const response = await fetch(API_URL);
+  if (response.ok) {
+    data = await response.json();
+  } else {
+    data = { message: 'Failed to fetch data.' };
+  }
+} catch (error) {
+  data = { message: 'Error connecting to the API.' };
+}
+---
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>My Live Site</title>
+  </head>
+  <body>
+    <h1>My Live Site is Up!</h1>
+    <p>Data from API: {data.message}</p>
+  </body>
+</html>
