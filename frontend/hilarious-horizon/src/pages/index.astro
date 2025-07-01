@@ -1,6 +1,7 @@
 ---
-// This will be replaced by an environment variable
-const API_URL = 'http://localhost:3001/api/data';
+---
+const API_URL = import.meta.env.PUBLIC_API_URL;
+
 let data = { message: 'Loading...' };
 try {
   const response = await fetch(API_URL);
@@ -13,10 +14,7 @@ try {
   data = { message: 'Error connecting to the API.' };
 }
 ---
----
-const API_URL = import.meta.env.PUBLIC_API_URL;
-//... rest of the fetch logic
----
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
